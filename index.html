@@ -3,11 +3,181 @@
   <head>
     <meta charset="utf-8">
     <title>Jonathan Shoaf - Front End Engineer</title>
-  </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/jquery.terminal-0.9.3.css">
+    <link href="css/main.css" rel="stylesheet"/>
   <body>
-    Jonathan Shoaf
-    <br>Front End Engineer
-    <br><a href="http://www.linkedin.com/in/jshoaf">http://www.linkedin.com/in/jshoaf</a>
-    <br><a href="https://github.com/jshoaf/jshoaf.github.io">https://github.com/jshoaf/jshoaf.github.io</a>
+<div class="container">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="term-hard" class="terminal">
+            <div class="typed-strings" id="typed-strings1">
+              <p>Start</p>
+            </div>
+            <div class="">
+              [guest] > <span id="typed1"></span>
+            </div>
+            <div class="typed-strings" id="typed-strings2">
+              <p>loading...</p>
+            </div>
+            <div class="">
+              <span id="typed2"></span>
+            </div>
+            <div class="typed-strings" id="typed-strings3">
+              <p>Hello.</p>
+            </div>
+            <div class="">
+              <span id="typed3"></span>
+            </div>
+            <div class="typed-strings" id="typed-strings4">
+              <p>Welcome to the web bot for <b class="term--highlight">Jonathan Shoaf</b>.</p>
+            </div>
+            <div class="">
+              <span id="typed4"></span>
+            </div>
+            <div class="typed-strings" id="typed-strings5">
+              <p>Jonathan Shoaf is an experienced <b class="term--highlight">Front End Engineer</b>.</p>
+<!--              <p>Software Engineer</p>
+              <p>Front End Engineer</p>
+              <p>Web Developer</p>-->
+            </div>
+            <div class="">
+              <span id="typed5"></span>
+            </div>
+            <div class="typed-strings" id="typed-strings6">
+              <p>How can I help you?</p>
+            </div>
+            <div class="">
+              <span id="typed6"></span>
+            </div>
+
+          </div>
+
+          <div id="term-soft"></div>
+<!--
+            <br>
+            <br><a href="http://www.linkedin.com/in/jshoaf">http://www.linkedin.com/in/jshoaf</a>
+            <br><a href="https://github.com/jshoaf">https://github.com/jshoaf</a>
+-->
+        </div>
+      </div>
+    </div>
+
+
+
+  <script src="js/jquery-2.2.1.min.js" type="text/javascript"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>  </head>
+  <script src="js/typed.min.js" type="text/javascript"></script>
+  <script src="js/jquery.terminal-0.9.3.min.js" type="text/javascript">
+
+  </script>
+  <script src="js/main.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+  // http://terminal.jcubic.pl/
+
+  jQuery(function($, undefined) {
+      $('#term-soft').terminal(function(command, term) {
+          if (command !== '') {
+            switch(command) {
+              case "help":
+                term.echo("This terminal will accept jQuery and Javascript commands.", {raw:true});
+                term.echo("These commands are also available:", {raw:true});
+                term.echo(" ");
+                term.echo("     about");
+                term.echo("     linkedin");
+                term.echo(" ");
+                break;
+              case "about":
+                term.echo("To be implemented...", {raw:true});
+                break;
+              case "linkedin":
+                term.echo("launching LinkedIn profile in new window...", {raw:true});
+                term.echo("http://www.linkedin.com/in/jshoaf");
+                setTimeout(function() { window.open("http://www.linkedin.com/in/jshoaf"); }, 1500);
+                break;
+              default:
+                try {
+                    var result = window.eval(command);
+                    if (result !== undefined) {
+                        term.echo(new String(result));
+                    }
+                } catch(e) {
+                    term.error(new String(e));
+                }
+
+            }
+          } else {
+             term.echo('');
+          }
+      }, {
+          greetings: '',
+          name: 'js_demo',
+          //height: 200,
+          prompt: '[guest] > '});
+  });
+
+  var nextID = 0;
+
+  function setCursor() {
+    //$(".typed-cursor").html("&nbsp;");
+  }
+
+      $(function(){
+
+        function getNextString() {
+
+          var typeSpeed = 50;
+          var maxID = 6;
+
+          nextID++;
+
+          console.log(nextID);
+
+          if (nextID <= maxID) {
+            if (nextID > 1) {
+              $("#typed" + (nextID - 1)).next().hide();
+            }
+            $("#typed" + nextID).typed({
+                stringsElement: $('#typed-strings' + nextID),
+                typeSpeed: typeSpeed,
+                startDelay: 1000,
+                cursorChar: " ",
+                preStringTyped: setCursor,
+                callback: getNextString
+            });
+            $(".typed-cursor").html("&nbsp;");
+          } else {
+            $("#typed" + (nextID - 1)).next().hide();
+            $("#term-soft").show();
+            setTimeout(function() { $("#term-soft").terminal().exec("help"); }, 2000);
+            $("#term-soft").terminal().focus(true);
+          }
+
+        };
+
+        getNextString(nextID);
+/*
+        $("#typed1").typed({
+            stringsElement: $('#typed-strings1'),
+            typeSpeed: typeSpeed,
+            startDelay: 1000,
+            callback: function() {
+              $("#typed1").next().hide();
+              $("#typed2").typed({
+                  stringsElement: $('#typed-strings2'),
+                  typeSpeed: typeSpeed,
+                  startDelay: 1000,
+                  showCursor: true
+              });
+            }
+        });
+*/
+      });
+
+  </script>
+
   </body>
 </html>

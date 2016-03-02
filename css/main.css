@@ -1,0 +1,196 @@
+body {
+  color: #fff;
+  background-color: #000;
+  font-size: 24px;
+  font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
+}
+
+.term--highlight {
+  color: yellow;
+}
+
+#term-hard {
+  padding-bottom: 0;
+}
+
+#term-soft {
+  padding-top: 0;
+  display: none;
+}
+
+.typed-strings {
+  display:none;
+}
+
+.typed-cursor {
+    -webkit-animation: terminal-blink 1s infinite steps(1, start);
+       -moz-animation: terminal-blink 1s infinite steps(1, start);
+        -ms-animation: terminal-blink 1s infinite steps(1, start);
+            animation: terminal-blink 1s infinite steps(1, start);
+}
+@-webkit-keyframes terminal-blink {
+  0%, 100% {
+      background-color: #000;
+      color: #aaa;
+  }
+  50% {
+      background-color: #bbb;
+      color: #000;
+  }
+}
+
+@-ms-keyframes terminal-blink {
+  0%, 100% {
+      background-color: #000;
+      color: #aaa;
+  }
+  50% {
+      background-color: #bbb;
+      color: #000;
+  }
+}
+
+@-moz-keyframes terminal-blink {
+  0%, 100% {
+      background-color: #000;
+      color: #aaa;
+  }
+  50% {
+      background-color: #bbb;
+      color: #000;
+  }
+}
+@keyframes terminal-blink {
+  0%, 100% {
+      background-color: #000;
+      color: #aaa;
+  }
+  50% {
+      background-color: #bbb; /* not #aaa because it's seems there is Google Chrome bug */
+      color: #000;
+  }
+}
+
+.xtyped-cursor {
+    opacity: 1;
+    font-weight: bold;
+    color: #7dc7ed;
+    -webkit-animation: blink 1.2s infinite;
+    -moz-animation: blink 1.2s infinite;
+    -ms-animation: blink 1.2s infinite;
+    -o-animation: blink 1.2s infinite;
+    animation: blink 1.2s infinite;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 1; }
+
+    50% {
+      opacity: 0; }
+
+    100% {
+      opacity: 1; } }
+
+  @-webkit-keyframes blink {
+    0% {
+      opacity: 1; }
+
+    50% {
+      opacity: 0; }
+
+    100% {
+      opacity: 1; } }
+
+  @-moz-keyframes blink {
+    0% {
+      opacity: 1; }
+
+    50% {
+      opacity: 0; }
+
+    100% {
+      opacity: 1; } }
+
+  /*@-ms-keyframes blink {
+    0% {
+      opacity: 1; }
+
+    50% {
+      opacity: 0; }
+
+    100% {
+      opacity: 1; } }*/
+
+  @-o-keyframes blink {
+    0% {
+      opacity: 1; }
+
+    50% {
+      opacity: 0; }
+
+    100% {
+      opacity: 1; } }
+
+ .xtyped-cursor {
+   visibility: visible;
+   content: '';
+   background-color: #d4f8e3;
+   display: inline-block;
+   position: relative;
+   width: 0.5em;
+   height: 1em;
+   top: 5px;
+   margin-left: 0;
+   -moz-box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+   -webkit-box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+   box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+   -moz-animation: flicker 0.1s steps(2, start) infinite, ready 1s steps(2, start) 25s infinite;
+   -webkit-animation: flicker 0.1s steps(2, start) infinite, ready 1s steps(2, start) 25s infinite;
+   animation: flicker 0.1s steps(2, start) infinite, ready 1s steps(2, start) 25s infinite;
+ }
+
+ @-moz-keyframes flicker {
+   to {
+     color: #bddeca;
+   }
+ }
+ @-webkit-keyframes flicker {
+   to {
+     color: #bddeca;
+   }
+ }
+ @keyframes flicker {
+   to {
+     color: #bddeca;
+   }
+ }
+ @-moz-keyframes ready {
+   to {
+     visibility: hidden;
+   }
+ }
+ @-webkit-keyframes ready {
+   to {
+     visibility: hidden;
+   }
+ }
+ @keyframes ready {
+   to {
+     visibility: hidden;
+   }
+ }
+
+/* TERMINAL Overwrites */
+.terminal, .cmd {
+    font-family: monospace;
+    /*font-family: FreeMono, monospace; this don't work on Android */
+    color: #aaa;
+    background-color: #000;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.terminal .terminal-output div div, .cmd .prompt {
+    line-height: 22px;
+}

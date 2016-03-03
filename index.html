@@ -6,13 +6,20 @@
     <title>Jonathan Shoaf - Front End Engineer</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/jquery.terminal-0.9.3.css">
     <link href="css/main.css" rel="stylesheet"/>
   <body>
 <div class="container">
 
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-sm-3">
+          <div class="jds-socialWrap">
+            <a href="http://www.linkedin.com/in/jshoaf"><i class="fa fa-linkedin-square fa-3x"></i></a>
+            <a href="https://github.com/jshoaf"><i class="fa fa-github fa-3x"></i></a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
           <div id="term-hard" class="terminal">
             <div class="typed-strings" id="typed-strings1">
               <p>Start</p>
@@ -57,11 +64,7 @@
           </div>
 
           <div id="term-soft"></div>
-<!--
-            <br>
-            <br><a href="http://www.linkedin.com/in/jshoaf">http://www.linkedin.com/in/jshoaf</a>
-            <br><a href="https://github.com/jshoaf">https://github.com/jshoaf</a>
--->
+
         </div>
       </div>
     </div>
@@ -80,19 +83,28 @@
   // http://terminal.jcubic.pl/
 
   jQuery(function($, undefined) {
-      $('#term-soft').terminal(function(command, term) {
+      $('#term-soft').terminal(function(commandStr, term) {
           if (command !== '') {
-            switch(command.toLowerCase()) {
+            var command = commandStr.trim().toLowerCase();
+            switch(command) {
               case "help":
-                term.echo("This terminal will accept jQuery and Javascript commands.", {raw:true});
-                term.echo("These commands are also available:", {raw:true});
+                //term.echo("This terminal will accept jQuery and Javascript commands.", {raw:true});
+                term.echo("These commands are available:", {raw:true});
                 term.echo(" ");
                 term.echo("     about");
                 term.echo("     linkedin");
+                term.echo("     github");
+                term.echo("     login <name>");
+                term.echo("     help");
                 term.echo(" ");
                 break;
               case "about":
-                term.echo("To be implemented...", {raw:true});
+                term.echo("Select the icon or type the command \"linkedin\" for more information", {raw:true});
+                break;
+              case "github":
+                term.echo("launching Github profile in new window...", {raw:true});
+                term.echo("https://github.com/jshoaf");
+                setTimeout(function() { window.open("https://github.com/jshoaf"); }, 1500);
                 break;
               case "linkedin":
                 term.echo("launching LinkedIn profile in new window...", {raw:true});
@@ -100,19 +112,30 @@
                 setTimeout(function() { window.open("http://www.linkedin.com/in/jshoaf"); }, 1500);
                 break;
               default:
-                try {
-                    var result = window.eval(command);
-                    if (result !== undefined) {
-                        term.echo(new String(result));
-                    }
-                } catch(e) {
-                    term.error(new String(e));
+                if (command.substr(0, 5) == "login") {
+                  if (command.length > 6) {
+                    var username = command.substr(6, command.length - 6).trim();
+                    term.echo("Welcome " + username + ".");
+                    term.set_prompt("[" + username + "] > ");
+                  } else {
+                    term.echo("Login name not recognized.");
+                  }
+                } else {
+                  try {
+                      var result = window.eval(command);
+                      if (result !== undefined) {
+                          term.echo(new String(result));
+                      }
+                  } catch(e) {
+                      term.error(new String(e));
+                  }
                 }
 
             }
           } else {
              term.echo('');
           }
+          window.scrollTo(0,document.body.scrollHeight);
       }, {
           greetings: '',
           name: 'js_demo',

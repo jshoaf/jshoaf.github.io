@@ -15,8 +15,8 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="jds-socialWrap">
-            <a href="http://www.linkedin.com/in/jshoaf"><i class="fa fa-linkedin-square fa-3x"></i></a>
-            <a href="https://github.com/jshoaf"><i class="fa fa-github fa-3x"></i></a>
+            <a href="http://www.linkedin.com/in/jshoaf" data-toggle="tooltip" data-placement="bottom" title="LinkedIn"><i class="fa fa-linkedin-square fa-3x"></i></a>
+            <a href="https://github.com/jshoaf" data-toggle="tooltip" data-placement="bottom" title="GitHub"><i class="fa fa-github fa-3x"></i></a>
           </div>
         </div>
         <div class="col-xs-12 col-sm-9">
@@ -47,9 +47,6 @@
             </div>
             <div class="typed-strings" id="typed-strings5">
               <p>Jonathan Shoaf is an experienced <b class="term--highlight">Front End Engineer</b>.</p>
-<!--              <p>Software Engineer</p>
-              <p>Front End Engineer</p>
-              <p>Web Developer</p>-->
             </div>
             <div class="">
               <span id="typed5"></span>
@@ -68,6 +65,28 @@
         </div>
       </div>
     </div>
+    <div id="career" class="jds-content">
+      <p>Career History:</p>
+      <p> </p>
+      <p>     Front End Developer</p>
+      <p>     (Jun 2014 - Present)</p>
+      <p>     Pulte, Inc.</p>
+      <p> </p>
+      <p>     Multimedia & E-learning Developer</p>
+      <p>     (Nov 2011 - Jun 2014)</p>
+      <p>     The Coca-Cola Company</p>
+      <p> </p>
+      <p>     E-learning Developer</p>
+      <p>     (Aug 2008 - Nov 2011)</p>
+      <p>     Gwinnett County Public Schools</p>
+      <p> </p>
+      <p>     Software Product Manager</p>
+      <p>     (Aug 2006 - Aug 2008)</p>
+      <p>     Front End & Application Developer</p>
+      <p>     (May 1996 - Apr 2006)*</p>
+      <p>     Blackboard, Inc.</p>
+      <p> </p>
+    </div>
 
 
 
@@ -83,6 +102,11 @@
   // http://terminal.jcubic.pl/
 
   jQuery(function($, undefined) {
+
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
       $('#term-soft').terminal(function(commandStr, term) {
           if (command !== '') {
             var command = commandStr.trim().toLowerCase();
@@ -91,12 +115,18 @@
                 //term.echo("This terminal will accept jQuery and Javascript commands.", {raw:true});
                 term.echo("These commands are available:", {raw:true});
                 term.echo(" ");
+                term.echo("     career");
                 term.echo("     about");
                 term.echo("     linkedin");
                 term.echo("     github");
                 term.echo("     login <name>");
                 term.echo("     help");
                 term.echo(" ");
+                break;
+              case "career":
+                $("#career p").each(function(index, element) {
+                  term.echo($(element).text());
+                });
                 break;
               case "about":
                 term.echo("Select the icon or type the command \"linkedin\" for more information", {raw:true});
@@ -139,15 +169,10 @@
       }, {
           greetings: '',
           name: 'js_demo',
-          //height: 200,
           prompt: '[guest] > '});
   });
 
   var nextID = 0;
-
-  function setCursor() {
-    //$(".typed-cursor").html("&nbsp;");
-  }
 
       $(function(){
 
@@ -157,8 +182,6 @@
           var maxID = 6;
 
           nextID++;
-
-          console.log(nextID);
 
           if (nextID <= maxID) {
             if (nextID > 1) {
@@ -183,22 +206,6 @@
         };
 
         getNextString(nextID);
-/*
-        $("#typed1").typed({
-            stringsElement: $('#typed-strings1'),
-            typeSpeed: typeSpeed,
-            startDelay: 1000,
-            callback: function() {
-              $("#typed1").next().hide();
-              $("#typed2").typed({
-                  stringsElement: $('#typed-strings2'),
-                  typeSpeed: typeSpeed,
-                  startDelay: 1000,
-                  showCursor: true
-              });
-            }
-        });
-*/
       });
 
   </script>

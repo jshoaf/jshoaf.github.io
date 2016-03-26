@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/jquery.terminal-0.9.3.css">
     <link href="css/main.css" rel="stylesheet"/>
+  </head>
   <body>
 <div class="container">
 
@@ -87,127 +88,26 @@
       <p>     Blackboard, Inc.</p>
       <p> </p>
     </div>
+    <div id="help" class="jds-content">
+      <p>These commands are available:<p>
+      <div class="">
+        <div class="">career</div>
+        <div class="">about</div>
+        <div class="">linkedin</div>
+        <div class="">github</div>
+        <div class="">login &lt;name&gt;</div>
+        <div class="">help</div>
+      </div>
+      <br />&nbsp;
+    </div>
 
 
 
   <script src="js/jquery-2.2.1.min.js" type="text/javascript"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>  </head>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="js/typed.min.js" type="text/javascript"></script>
-  <script src="js/jquery.terminal-0.9.3.min.js" type="text/javascript">
-
-  </script>
+  <script src="js/jquery.terminal-0.9.3.min.js" type="text/javascript"></script>
   <script src="js/main.js" type="text/javascript"></script>
-  <script type="text/javascript">
-
-  // http://terminal.jcubic.pl/
-
-  jQuery(function($, undefined) {
-
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-
-      $('#term-soft').terminal(function(commandStr, term) {
-          if (command !== '') {
-            var command = commandStr.trim().toLowerCase();
-            switch(command) {
-              case "help":
-                //term.echo("This terminal will accept jQuery and Javascript commands.", {raw:true});
-                term.echo("These commands are available:", {raw:true});
-                term.echo(" ");
-                term.echo("     career");
-                term.echo("     about");
-                term.echo("     linkedin");
-                term.echo("     github");
-                term.echo("     login <name>");
-                term.echo("     help");
-                term.echo(" ");
-                break;
-              case "career":
-                $("#career p").each(function(index, element) {
-                  term.echo($(element).text());
-                });
-                break;
-              case "about":
-                term.echo("Select the icon or type the command \"linkedin\" for more information", {raw:true});
-                break;
-              case "github":
-                term.echo("launching Github profile in new window...", {raw:true});
-                term.echo("https://github.com/jshoaf");
-                setTimeout(function() { window.open("https://github.com/jshoaf"); }, 1500);
-                break;
-              case "linkedin":
-                term.echo("launching LinkedIn profile in new window...", {raw:true});
-                term.echo("http://www.linkedin.com/in/jshoaf");
-                setTimeout(function() { window.open("http://www.linkedin.com/in/jshoaf"); }, 1500);
-                break;
-              default:
-                if (command.substr(0, 5) == "login") {
-                  if (command.length > 6) {
-                    var username = command.substr(6, command.length - 6).trim();
-                    term.echo("Welcome " + username + ".");
-                    term.set_prompt("[" + username + "] > ");
-                  } else {
-                    term.echo("Login name not recognized.");
-                  }
-                } else {
-                  try {
-                      var result = window.eval(command);
-                      if (result !== undefined) {
-                          term.echo(new String(result));
-                      }
-                  } catch(e) {
-                      term.error(new String(e));
-                  }
-                }
-
-            }
-          } else {
-             term.echo('');
-          }
-          window.scrollTo(0,document.body.scrollHeight);
-      }, {
-          greetings: '',
-          name: 'js_demo',
-          prompt: '[guest] > '});
-  });
-
-  var nextID = 0;
-
-      $(function(){
-
-        function getNextString() {
-
-          var typeSpeed = 50;
-          var maxID = 6;
-
-          nextID++;
-
-          if (nextID <= maxID) {
-            if (nextID > 1) {
-              $("#typed" + (nextID - 1)).next().hide();
-            }
-            $("#typed" + nextID).typed({
-                stringsElement: $('#typed-strings' + nextID),
-                typeSpeed: typeSpeed,
-                startDelay: 1000,
-                cursorChar: " ",
-                callback: getNextString
-            });
-            $(".typed-cursor").html("&nbsp;");
-          } else {
-            $("#typed" + (nextID - 1)).next().hide();
-            $("#term-soft").show();
-            setTimeout(function() { $("#term-soft").terminal().exec("help"); }, 2000);
-            $("#term-soft").terminal().focus(true);
-          }
-
-        };
-
-        getNextString(nextID);
-      });
-
-  </script>
 
   </body>
 </html>

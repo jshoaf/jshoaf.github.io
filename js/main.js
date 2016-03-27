@@ -2,6 +2,10 @@
 
 jQuery(function($, undefined) {
 
+  function echoHelp(term) {
+    term.echo($("#help").html(), {raw:true});
+  }
+
   $(document).ready(function() {
 
     $('[data-toggle="tooltip"]').tooltip();
@@ -12,26 +16,29 @@ jQuery(function($, undefined) {
 
         switch(command) {
           case "help":
-            term.echo($("#help").html(), {raw:true});
+            echoHelp(term);
             break;
           case "career":
             term.echo($("#career").html(), {raw:true});
-            //$("#career p").each(function(index, element) {
-            //  term.echo($(element).text());
-            //});
-            break;
-          case "about":
-            term.echo("Select the icon or type the command \"linkedin\" for more information", {raw:true});
             break;
           case "github":
             term.echo("launching Github profile in new window...", {raw:true});
             term.echo("https://github.com/jshoaf");
             setTimeout(function() { window.open("https://github.com/jshoaf"); }, 1500);
             break;
+          case "portfolio":
+            term.echo("Sorry, not available at this time.  Coming soon...", {raw:true});
+            break;
           case "linkedin":
             term.echo("launching LinkedIn profile in new window...", {raw:true});
             term.echo("http://www.linkedin.com/in/jshoaf");
             setTimeout(function() { window.open("http://www.linkedin.com/in/jshoaf"); }, 1500);
+            break;
+          case "reboot":
+            term.clear();
+            term.echo("rebooting...", {raw:true});
+            term.set_prompt("");
+            setTimeout(function() { reboot(); }, 1000);
             break;
           default:
             if (command.substr(0, 5) == "login") {
@@ -50,6 +57,7 @@ jQuery(function($, undefined) {
                   }
               } catch(e) {
                   term.error(new String(e));
+                  echoHelp(term);
               }
             }
 
@@ -61,42 +69,65 @@ jQuery(function($, undefined) {
     }, {
       greetings: '',
       name: 'js_demo',
-      prompt: '[guest] > '
+      prompt: '[?] > ',
+      onClear: function() {
+        $("#term-hard").hide();
+        //echoHelp($("#term-soft").terminal());
+      }
     });
+
+    var nextID = 0;
+
+    function getNextString() {
+
+      var typeSpeed = 50;
+      var maxID = 6;
+
+      nextID++;
+
+      if (nextID <= maxID) {
+        if (nextID > 1) {
+          $("#typed" + (nextID - 1)).next().hide();
+        }
+        $("#typed" + nextID).typed('reset');
+        $("#typed" + nextID).typed({
+            stringsElement: $('#typed-strings' + nextID),
+            typeSpeed: typeSpeed,
+            startDelay: 1000,
+            cursorChar: " ",
+            callback: getNextString
+        });
+        $(".typed-cursor").html("&nbsp;");
+      } else {
+        typedsInitialized = true;
+        $("#typed" + (nextID - 1)).next().hide();
+        $("#term-soft").terminal().set_prompt("[?] > ");
+        $("#term-soft").show();
+        setTimeout(function() { $("#term-soft").terminal().exec("help"); }, 2000);
+        $("#term-soft").terminal().focus(true);
+      }
+
+    };
+
+    function reboot() {
+
+      $("#term-soft").terminal().clear();
+      $("#term-soft").hide();
+
+      var term = $("#term-hard");
+
+      //term.empty();
+      $("span[id^=typed]").empty();
+      $(".typed-cursor").remove();
+      term.show();
+      nextID = 0;
+      getNextString(nextID);
+    }
+
+    reboot();
+
+    //$("#term-soft").show();
+    //$("#term-soft").terminal().focus(true);
+
   });
 });
-
-var nextID = 0;
-
-    $(function(){
-
-      function getNextString() {
-
-        var typeSpeed = 50;
-        var maxID = 6;
-
-        nextID++;
-
-        if (nextID <= maxID) {
-          if (nextID > 1) {
-            $("#typed" + (nextID - 1)).next().hide();
-          }
-          $("#typed" + nextID).typed({
-              stringsElement: $('#typed-strings' + nextID),
-              typeSpeed: typeSpeed,
-              startDelay: 1000,
-              cursorChar: " ",
-              callback: getNextString
-          });
-          $(".typed-cursor").html("&nbsp;");
-        } else {
-          $("#typed" + (nextID - 1)).next().hide();
-          $("#term-soft").show();
-          setTimeout(function() { $("#term-soft").terminal().exec("help"); }, 2000);
-          $("#term-soft").terminal().focus(true);
-        }
-
-      };
-
-      getNextString(nextID);
-    });

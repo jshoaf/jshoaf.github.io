@@ -72,7 +72,6 @@ jQuery(function($, undefined) {
       prompt: '[?] > ',
       onClear: function() {
         $("#term-hard").hide();
-        //echoHelp($("#term-soft").terminal());
       }
     });
 

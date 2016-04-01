@@ -6,62 +6,74 @@ jQuery(function($, undefined) {
     term.echo($("#help").html(), {raw:true});
   }
 
+  function executeCommand(term, command) {
+
+    switch(command) {
+      case "help":
+        echoHelp(term);
+        break;
+      case "career":
+        term.echo($("#career").html(), {raw:true});
+        break;
+      case "github":
+        term.echo("launching Github profile in new window...", {raw:true});
+        term.echo("https://github.com/jshoaf");
+        setTimeout(function() { window.open("https://github.com/jshoaf"); }, 1500);
+        break;
+      case "portfolio":
+        term.echo("Sorry, not available at this time.  Coming soon...", {raw:true});
+        break;
+      case "linkedin":
+        term.echo("launching LinkedIn profile in new window...", {raw:true});
+        term.echo("http://www.linkedin.com/in/jshoaf");
+        setTimeout(function() { window.open("http://www.linkedin.com/in/jshoaf"); }, 1500);
+        break;
+      case "reboot":
+        term.clear();
+        term.echo("rebooting...", {raw:true});
+        term.set_prompt("");
+        setTimeout(function() { reboot(); }, 1000);
+        break;
+      default:
+        if (command.substr(0, 5) == "login") {
+          if (command.length > 6) {
+            var username = command.substr(6, command.length - 6).trim();
+            term.echo("Welcome " + username + ".");
+            term.set_prompt("[" + username + "] > ");
+          } else {
+            term.echo("Login name not recognized.");
+          }
+        } else {
+          try {
+              var result = window.eval(command);
+              if (result !== undefined) {
+                  term.echo(new String(result));
+              }
+          } catch(e) {
+              term.error(new String(e));
+              echoHelp(term);
+          }
+        }
+
+    }
+  }
+
   $(document).ready(function() {
+
+    //$(".help_command").on("click", function() {
+    $(document).on("click", ".help_command", function() {
+      console.log("command: " + $(this).text());
+      executeCommand($("#term-soft").terminal(), $(this).text());
+    });
 
     $('[data-toggle="tooltip"]').tooltip();
 
     $('#term-soft').terminal(function(commandStr, term) {
+
+      var command = commandStr.trim().toLowerCase();
+
       if (command !== '') {
-        var command = commandStr.trim().toLowerCase();
-
-        switch(command) {
-          case "help":
-            echoHelp(term);
-            break;
-          case "career":
-            term.echo($("#career").html(), {raw:true});
-            break;
-          case "github":
-            term.echo("launching Github profile in new window...", {raw:true});
-            term.echo("https://github.com/jshoaf");
-            setTimeout(function() { window.open("https://github.com/jshoaf"); }, 1500);
-            break;
-          case "portfolio":
-            term.echo("Sorry, not available at this time.  Coming soon...", {raw:true});
-            break;
-          case "linkedin":
-            term.echo("launching LinkedIn profile in new window...", {raw:true});
-            term.echo("http://www.linkedin.com/in/jshoaf");
-            setTimeout(function() { window.open("http://www.linkedin.com/in/jshoaf"); }, 1500);
-            break;
-          case "reboot":
-            term.clear();
-            term.echo("rebooting...", {raw:true});
-            term.set_prompt("");
-            setTimeout(function() { reboot(); }, 1000);
-            break;
-          default:
-            if (command.substr(0, 5) == "login") {
-              if (command.length > 6) {
-                var username = command.substr(6, command.length - 6).trim();
-                term.echo("Welcome " + username + ".");
-                term.set_prompt("[" + username + "] > ");
-              } else {
-                term.echo("Login name not recognized.");
-              }
-            } else {
-              try {
-                  var result = window.eval(command);
-                  if (result !== undefined) {
-                      term.echo(new String(result));
-                  }
-              } catch(e) {
-                  term.error(new String(e));
-                  echoHelp(term);
-              }
-            }
-
-        }
+        executeCommand(term, command);
       } else {
          term.echo('');
       }

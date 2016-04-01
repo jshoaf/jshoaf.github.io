@@ -114,6 +114,7 @@ body {
 
 .help_command:hover {
   text-shadow: 0px 0 15px #ffffa0;
+  cursor: pointer;
 }
 
 .help_command {

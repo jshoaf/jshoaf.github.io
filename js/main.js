@@ -2,8 +2,55 @@
 
 jQuery(function($, undefined) {
 
+  var nextID = 0;
+
   function echoHelp(term) {
     term.echo($("#help").html(), {raw:true});
+  }
+
+  function getNextString() {
+
+    var typeSpeed = 50;
+    var maxID = 6;
+
+    nextID++;
+
+    if (nextID <= maxID) {
+      if (nextID > 1) {
+        $("#typed" + (nextID - 1)).next().hide();
+      }
+      $("#typed" + nextID).typed('reset');
+      $("#typed" + nextID).typed({
+          stringsElement: $('#typed-strings' + nextID),
+          typeSpeed: typeSpeed,
+          startDelay: 1000,
+          cursorChar: " ",
+          callback: getNextString
+      });
+      $(".typed-cursor").html("&nbsp;");
+    } else {
+      typedsInitialized = true;
+      $("#typed" + (nextID - 1)).next().hide();
+      $("#term-soft").terminal().set_prompt("[?] > ");
+      $("#term-soft").show();
+      setTimeout(function() { $("#term-soft").terminal().exec("help"); }, 2000);
+      $("#term-soft").terminal().focus(true);
+    }
+
+  };
+
+  function reboot() {
+
+    $("#term-soft").terminal().clear();
+    $("#term-soft").hide();
+
+    var term = $("#term-hard");
+
+    $("span[id^=typed]").empty();
+    $(".typed-cursor").remove();
+    term.show();
+    nextID = 0;
+    getNextString(nextID);
   }
 
   function executeCommand(term, command) {
@@ -62,7 +109,6 @@ jQuery(function($, undefined) {
 
     //$(".help_command").on("click", function() {
     $(document).on("click", ".help_command", function() {
-      console.log("command: " + $(this).text());
       executeCommand($("#term-soft").terminal(), $(this).text());
     });
 
@@ -86,53 +132,6 @@ jQuery(function($, undefined) {
         $("#term-hard").hide();
       }
     });
-
-    var nextID = 0;
-
-    function getNextString() {
-
-      var typeSpeed = 50;
-      var maxID = 6;
-
-      nextID++;
-
-      if (nextID <= maxID) {
-        if (nextID > 1) {
-          $("#typed" + (nextID - 1)).next().hide();
-        }
-        $("#typed" + nextID).typed('reset');
-        $("#typed" + nextID).typed({
-            stringsElement: $('#typed-strings' + nextID),
-            typeSpeed: typeSpeed,
-            startDelay: 1000,
-            cursorChar: " ",
-            callback: getNextString
-        });
-        $(".typed-cursor").html("&nbsp;");
-      } else {
-        typedsInitialized = true;
-        $("#typed" + (nextID - 1)).next().hide();
-        $("#term-soft").terminal().set_prompt("[?] > ");
-        $("#term-soft").show();
-        setTimeout(function() { $("#term-soft").terminal().exec("help"); }, 2000);
-        $("#term-soft").terminal().focus(true);
-      }
-
-    };
-
-    function reboot() {
-
-      $("#term-soft").terminal().clear();
-      $("#term-soft").hide();
-
-      var term = $("#term-hard");
-
-      $("span[id^=typed]").empty();
-      $(".typed-cursor").remove();
-      term.show();
-      nextID = 0;
-      getNextString(nextID);
-    }
 
     reboot();
 

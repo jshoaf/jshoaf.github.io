@@ -115,7 +115,6 @@ jQuery(function($, undefined) {
 
       var term = $("#term-hard");
 
-      //term.empty();
       $("span[id^=typed]").empty();
       $(".typed-cursor").remove();
       term.show();

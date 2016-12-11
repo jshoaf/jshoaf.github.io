@@ -1,0 +1,163 @@
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400);
+
+body {
+  color: #fff;
+  font-size: 24px;
+  font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
+  background-color: #000;
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-attachment: fixed;
+}
+
+.jds-content {
+  display: none;
+}
+
+.echoText {
+  margin: 1em 0;
+}
+
+.echoText_item {
+  margin-top: 1em;
+  margin-right: 5em;
+}
+
+.career_header {
+  font-weight: bold;
+}
+
+.jds-socialWrap {
+  padding: 10px;
+}
+
+.jds-socialWrap i {
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.jds-socialWrap a, .jds-socialWrap:visited {
+  color: #fff;
+}
+
+.jds-socialWrap a:hover {
+  color: #ffffa0;
+}
+
+.term--highlight {
+  color: #fff;
+  text-shadow: none;
+}
+
+#term-hard {
+  padding-bottom: 0;
+}
+
+#term-soft {
+  padding-top: 0;
+  display: none;
+}
+
+.typed-strings {
+  display:none;
+}
+
+.typed-cursor {
+    -webkit-animation: terminal-blink 2s infinite steps(1, start);
+       -moz-animation: terminal-blink 2s infinite steps(1, start);
+        -ms-animation: terminal-blink 2s infinite steps(1, start);
+            animation: terminal-blink 2s infinite steps(1, start);
+}
+@-webkit-keyframes terminal-blink {
+  0%, 100% {
+    background-color: transparent;
+    color: transparent;
+  }
+  50% {
+    background-color: #bbb;
+    color: transparent;
+  }
+}
+
+@-ms-keyframes terminal-blink {
+  0%, 100% {
+    background-color: transparent;
+    color: transparent;
+  }
+  50% {
+    background-color: #bbb;
+    color: transparent;
+  }
+}
+
+@-moz-keyframes terminal-blink {
+  0%, 100% {
+    background-color: transparent;
+    color: transparent;
+  }
+  50% {
+    background-color: #bbb;
+    color: transparent;
+  }
+}
+@keyframes terminal-blink {
+  0%, 100% {
+    background-color: transparent;
+    color: transparent;
+  }
+  50% {
+      background-color: #bbb; /* not #aaa because it's seems there is Google Chrome bug */
+      color: transparent;
+  }
+}
+
+.help_command:hover {
+  text-shadow: 0px 0 15px #ffffa0;
+  cursor: pointer;
+}
+
+.help_command {
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+/* Bootstrap Overwrites */
+
+/* Tooltip */
+
+.tooltip.bottom {
+  padding-top: 10px;
+}
+.tooltip > .tooltip-inner {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+#term-hard {
+  overflow-y: hidden;
+}
+
+.termWrapper {
+  padding: 10px;
+  height: 100%;
+  margin: 15px 0;
+	padding: 15px;
+}
+
+/* TERMINAL Overwrites */
+.terminal, .cmd {
+  padding: 0;
+  color: #aaa;
+  background-color:transparent;
+  font-size: 20px;
+  line-height: 22px;
+  font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
+  color: #d4f8e3;
+  text-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+}
+
+.terminal .terminal-output div div, .cmd .prompt {
+    line-height: 22px;
+}

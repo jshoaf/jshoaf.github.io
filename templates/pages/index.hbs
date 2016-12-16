@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<header class="row">
+  <div class="col-sm-9">
+    <h1>Jonathan Shoaf</h1>
+    <h2>Software Engineer &amp; UI/UX Specialist</h2>
+    <nav>
+      <!-- use UL with bootstrap nav component --> 
+      <i class="fa fa-linkedin-square"></i> <a target="_blank" href="http://www.linkedin.com/in/jshoaf">LinkedIn</a>
+      {{!--| <i class="fa fa-briefcase"></i> <a target="_blank" href="terminal.html">Portfolio</a>--}}
+      | <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/jshoaf">GitHub</a>
+      | <i class="fa fa-map-marker"></i> <a target="_blank" href="https://www.google.com/maps/place/Snellville,+GA+30078/">Snellville, GA</a>
+    </nav>
+  </div>
+  <div class="col-sm-3 hidden-xs">
+    <div class="pull-right"><div class="thumbnail-circle"></div></div>
+    <!--
+    <div class="jds-socialWrap pull-right">
+      <a href="index.html" data-toggle="tooltip" data-placement="bottom" title="Home"><i class="fa fa-home fa-3x"></i></a>
+      <a href="http://www.linkedin.com/in/jshoaf" data-toggle="tooltip" data-placement="bottom" title="LinkedIn"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      <a href="https://github.com/jshoaf" data-toggle="tooltip" data-placement="bottom" title="GitHub"><i class="fa fa-github fa-3x"></i></a>
+      <a href="portfolio.html" data-toggle="tooltip" data-placement="bottom" title="Portfolio"><i class="fa fa-building fa-3x"></i></a>
+      <a href="terminal.html" data-toggle="tooltip" data-placement="bottom" title="Custom Terminal"><i class="fa fa-terminal fa-3x"></i></a>
+    </div>
+    -->
+  </div>
+</header>
+<article class="resume row">
+<section class="col-sm-4 col-sm-push-8">
+  <section class="resume-category">
+    <h1>About Me</h1>
+    <section>I am a software professional with a rich experience in all areas of the SDLC.  I have experience as a developer, a product manager, and as director of technology.  I balance a keen eye for usability with pragmatic decision making.  Because of my passion for quality usable software, I have gravitated towards front-end engineering.  However, I consider myself a full stack developer and have experience and ability for coding in all aspects of software development.</section>
+  </section>
+  <section class="resume-category resume-attributes">
+    <h1>Passions</h1>
+    {{#attribute-data.attributes}}
+      {{> attribute this}}
+    {{/attribute-data.attributes}}
+  </section>
+  <section class="resume-category resume-skills">
+    <h1>Skills</h1>
+    <section>
+      {{#skill-data.skills}}
+        {{> skill this}}      
+      {{/skill-data.skills}}
+    </section>
+  </section>
+  <section class="resume-category resume-education">
+    <h1>Education</h1>
+    <section>
+      <section>
+        <h2>Sitecore Certified Professional Developer</h2>
+        <h3>Sitecore</h3>
+        <h4>July 2015</h4>
+      </section>
+      <section>
+        <h2>B.S. in Computer Science</h2>
+        <h3>Berry College</h3>
+        <h4>August 1992 to April 1996</h4>
+      </section>
+    </section>
+  </section>
+</section>
+<section class="col-sm-8 col-sm-pull-4">
+  <section class="resume-category resume-experience">
+    <h1>Experience</h1>
+    {{#experience-data.experiences}}
+      {{> experience this}}
+    {{/experience-data.experiences}}
+  </section>
+</section>
+</article>
+{{!--<footer>Updated: 12/12/2016</footer>--}}

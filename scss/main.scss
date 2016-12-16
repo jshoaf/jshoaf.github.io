@@ -1,4 +1,161 @@
 @import "bootstrap";
 @import "bootstrap/theme";
-@import "jquery.terminal-0.9.3.scss";
-@import "terminal.scss";
+@import "font-awesome";
+
+$body-font-color: #3D3D3D;
+$site-heading-color: #914262;
+$site-label-bg-color: lighten($site-heading-color, 10%);
+$resume-heading-color: $site-heading-color;
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('http://fonts.googleapis.com/css?family=Inconsolata:400');
+@import url('https://fonts.googleapis.com/css?family=Dekko');
+
+body {
+  color: $body-font-color;
+  //font-family: 'Dekko', cursive;
+  font-family: 'Open Sans', sans-serif;
+  //font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
+  //background-color: #000;
+}
+div.container {
+    //background-color: #fff;
+    //padding: 50px;
+}
+
+header {
+
+    padding-top: 20px;
+
+    h1 {
+        font-weight: bold;
+        margin-bottom: 5px;
+        margin-top: 0px;
+        //font-family: 'Dekko', cursive;
+    }
+    h2 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: $site-heading-color;
+        font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
+        font-weight: bold;
+        font-size: 28px;
+    }
+    nav {
+        margin-top: 5px;
+        font-size: 16px;
+
+        a {
+            color: $body-font-color;            
+        }
+        a:hover {
+            color: lighten($body-font-color, 40%);
+        }
+    }
+
+    .thumbnail-circle {
+        display: block;
+        width: 120px;
+        height: 120px;
+        background: #E6E7ED;
+        border-radius: 60px;
+        -moz-border-radius: 60px;
+        -webkit-border-radius: 60px;
+        background-image: url(../images/my-thumbnail.jpg);
+        background-position:50% 50%;
+        background-repeat:no-repeat;
+        background-size: contain;    
+    }
+}
+
+.resume {
+    h1, h2, h3, h4 {
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+    h3, h4 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    h4 {
+        color: lighten($body-font-color, 30%);
+    }
+    .resume-experience section div div:first-child,
+    .resume-education {
+        h4:before {
+            font-family: FontAwesome;
+            margin-right: 7px;
+            content: '\f073';
+        }
+    }
+    .resume-experience section div div:last-child {
+        h4:before {
+            font-family: FontAwesome;
+            margin-right: 7px;
+            content: '\f041';
+        }
+    }
+
+    .resume-experience section {
+        //border-bottom: 1px dashed #ccc;
+        padding: 7px;
+        margin: 0;
+    }
+
+    .resume-experience section:nth-child(odd) {
+        //border-bottom: 1px dashed #ccc;
+        background-color: #eeeeee;
+        border-radius: 10px;
+    }
+
+    .resume-skills span {
+        //padding: 3px;
+        margin: 3px;
+        font-size: 100%;
+        font-weight: normal;
+        background-color: $site-label-bg-color;
+        display: inline-block;
+    }
+
+    .resume-attributes section div:nth-child(1) {
+        float: left;
+        width: 30px;
+    }
+
+    .resume-attributes section div:nth-child(2) {
+        display: table;
+    }
+
+    .resume-category section {
+        //clear: both;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    h1 {
+        //font-family: 'Dekko', cursive;
+        //font-family: 'Open Sans', sans-serif;
+        font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
+        font-size: 28px;
+        color: $resume-heading-color;
+        font-weight: bold;
+        width: 100%;
+        //text-transform: uppercase;
+        border-bottom: 2px solid $resume-heading-color;
+
+    }
+    h2 {
+        font-size: 24px;
+    }
+    h3 {
+        font-size: 18px;
+        font-weight: bold;
+        color: $resume-heading-color;
+    }
+    h4 {
+        font-size: 16px;
+    }
+    ul {
+        padding-left:20px;
+    }
+}

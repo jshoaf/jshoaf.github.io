@@ -1,0 +1,176 @@
+{
+    "experiences": [
+        {
+            "title": "Software Developer - Marketing Systems",
+            "institution": "Pulte Group, Inc.",
+            "startDate": "June 2014",
+            "endDate": "present",
+            "location": "Atlanta, GA",
+            "notes": [
+                {
+                    "note": "Front end engineer for customer facing responsive websites designed to build brands, generate leads, and bring in visitors through SEO and social networking."
+                },
+                {
+                    "note": "Established myself as a Sitecore Certified Developer (.NET / Sitecore XP 8.0) and helped lead the development effort for moving my company to the Sitecore Platform."
+                },
+                {
+                    "note": "UI/UX lead for website working with customers to gather requirements, wireframe and design user experience, perform usability testing, estimate effort, and task for development."
+                }
+            ]
+        },
+        {
+            "title": "Multimedia & E-learning Developer",
+            "institution": "The Coca-Cola Company",
+            "startDate": "November 2011",
+            "endDate": "June 2014",
+            "location": "Alpharetta, GA",
+            "notes": [
+                {
+                    "note": "Developed a troubleshooting system using jQuery, CSS, ASP, XML and SQL that provides decision support for technicians, tracks usage, and collects content quality feedback."
+                },
+                {
+                    "note": "Developed web app using jQuery, CSS and open source SPServices library for SharePoint web services in order to create a unique touch screen user experience for field technicians."
+                },
+                {
+                    "note": "Speaker on topic of using JavaScript with open source library to integrate with SharePoint Web Services API at DevLearn 2013 conference."
+                },
+                {
+                    "note": "Collaborated with instructional designers and partner with business groups to produce web-based multimedia and e-learning content."
+                }
+            ]
+        },
+        {
+            "title": "Front End Engineer & E-learning Developer",
+            "institution": "Self-Employed Contractor",
+            "startDate": "July 2009",
+            "endDate": "December 2013",
+            "location": "Snellville, GA",
+            "notes": [
+                {
+                    "note": "Developed HTML/JavaScript and Flash/Actionscript e-learning solutions."
+                },
+                {
+                    "note": "Convert learning modules to SCORM, iPad compatibility (HTML5), server side coding in PHP, and ASP.Net, performance support system using jQuery."
+                },
+                {
+                    "note": "Blog and guest blogging on various eLearning and web development topics."
+                }
+            ]
+        },
+        {
+            "title": "Web Developer, E-learning",
+            "institution": "Gwinnett County Public Schools",
+            "startDate": "August 2008",
+            "endDate": "November 2011",
+            "location": "Suwanee, GA",
+            "notes": [
+                {
+                    "note": "Develop SCORM web content. SCORM is a JavaScript framework for e-learning interoperability."
+                },
+                {
+                    "note": "Integrate Flash objects into e-learning ActionScript, JavaScript, and Adobe Captivate widgets."
+                },
+                {
+                    "note": "Implementation of a performance support e-learning strategy to reduce employee time requirements and provide self-directed learning options.  (HTML, JavaScript, Flash)"
+                },
+                {
+                    "note": "Create requirements and processes for using Saba LMS for delivering e-learning content."
+                },
+                {
+                    "note": "Teach sessions on social, collaborative, and cloud-based computing services to faculty and staff."
+                }
+            ]
+        },
+        {
+            "title": "Product Manager",
+            "institution": "Wimba (Acquired by Blackboard)",
+            "startDate": "April 2006",
+            "endDate": "August 2008",
+            "location": "Lawrenceville, GA",
+            "notes": [
+                {
+                    "note": "Worked for company specializing in web-based collaborative instructional technology."
+                },
+                {
+                    "note": "Managed academic assessment software for desktop and web products including requirements, specs, project management, and product strategy."
+                },
+                {
+                    "note": "Served as product leader for diverse group of team members in England, France, India, and the U.S. using web conferencing, wikis, IM, and other collaborative communication technologies."
+                },
+                {
+                    "note": "Worked with marketing, executives, and other stakeholders to develop long term product roadmap and strategy."
+                },
+                {
+                    "note": "Succeeded in taking over a failed product and making it stable and reliable resulting in expansion of a large customer contract."
+                }
+            ]
+        },
+        {
+            "title": "Sr. Web Developer & Software Engineer",
+            "institution": "Brownstone (Acquired by Wimba) (Acquired by Blackboard)",
+            "startDate": "May 1996",
+            "endDate": "April 2006",
+            "location": "Atlanta, GA",
+            "notes": [
+                {
+                    "note": "Created a popular JavaScript-based quizzing engine used by higher education instructors and textbook publishing companies."
+                },
+                {
+                    "note": "Project lead and developer for a project tracking web site for employees and customers using client and server side web technologies ASP.Net, JavaScript, and SQL."
+                },
+                {
+                    "note": "Project lead and developer for data conversion tools to move data in and out of course management systems such as Blackboard. Developed using VB, XML, and JavaScript."
+                },
+                {
+                    "note": "Project lead and developer for a web-based academic testing system that provides password protection, grading mechanisms, and results savings. (Perl, CGI, C++, VB.Net, JavaScript)"
+                },
+                {
+                    "note": "Project lead and web developer for the corporate web site including e-commerce and licensing capabilities. (ASP, HTML, CSS, and JavaScript)"
+                },
+                {
+                    "note": "Position held: May 96 – Sep 97, Jan 99 – Mar 03, May 04 – Apr 06 (8 years total)"
+                }
+            ]
+        },
+        {
+            "title": "Director of Academic Technology",
+            "institution": "Berry College, School of Mathematical & Natural Sciences",
+            "startDate": "March 2003",
+            "endDate": "May 2004",
+            "location": "Rome, GA",
+            "notes": [
+                {
+                    "note": "Performed computer and technology support, consulting, and training for faculty and staff."
+                },
+                {
+                    "note": "Served on campus-wide IT committee and as liaison with the central IT department and learned the IT organizational structure."
+                },
+                {
+                    "note": "Developed and maintained the school’s web site. (HTML, CSS, and JavaScript)"
+                }
+            ]
+        },
+        {
+            "title": "Systems Engineer/Software Support Engineer",
+            "institution": "Barco, Inc. Display Systems",
+            "startDate": "September 1997",
+            "endDate": "January 1999",
+            "location": "Duluth, GA",
+            "notes": [
+                {
+                    "note": "Performed verification testing of UNIX X-window systems on VME and PCI bus systems for use in air traffic control, military, and other mission critical applications. (Shell Scripting)"
+                },
+                {
+                    "note": "Programmed in C to correct defects in X-window server code."
+                },
+                {
+                    "note": "Traveled internationally for training, customer support, and to learn about new products."
+                },
+                {
+                    "note": "Recognized the need for tracking customer service support requests and developed a database application that could be shared among multiple employees over the network. (VB, Access, SQL)"
+                }
+            ]
+        }
+    ]
+}
+

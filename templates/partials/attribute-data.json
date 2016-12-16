@@ -1,0 +1,20 @@
+{
+    "attributes": [
+        {
+            "icon": "fa-paint-brush",
+            "heading": "User Experience",
+            "text": "I am well known for my drive to simplify the user experience and map actions to the results that are desired."
+        },
+        {
+            "icon": "fa-certificate",
+            "heading": "Well Rounded",
+            "text": "Front end, back end, database...whatever it takes. And, as a product manager I worked with all levels of business to succeed in product development."
+        },
+        {
+            "icon": "fa-graduation-cap",
+            "heading": "Love of Learning",
+            "text": "E-learning has been an interest of mine. It allows me to use a lot of my web development skills combined with my interest in user experience and love for learning."
+        }
+    ]
+
+}

@@ -1,0 +1,58 @@
+{
+	"skills": [
+		{
+			"name": "JavaScript"
+		},
+		{
+		  "name": "jQuery"
+		},
+		{
+		  "name": "Knockout.js"
+		},
+		{
+		  "name": "C#"
+		},
+		{
+		  "name": ".Net"
+		},
+		{
+		  "name": "Sitecore"
+		},
+		{
+		  "name": "Bootstrap"
+		},
+		{
+		  "name": "HTML5"
+		},
+		{
+		  "name": "User Experience"
+		},
+		{
+		  "name": "CSS"
+		},
+		{
+		  "name": "SASS/LESS"
+		},
+		{
+		  "name": "Gulp"
+		},
+		{
+		  "name": "Handlebars"
+		},
+		{
+		  "name": "SQL"
+		},
+		{
+		  "name": "Visual Studio"
+		},
+		{
+		  "name": "TFS"
+		},
+		{
+		  "name": "JSON"
+		},
+		{
+		  "name": "Saba"
+		}
+	]
+}

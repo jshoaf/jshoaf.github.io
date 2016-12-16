@@ -1,6 +1,11 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+    css = require('./gulp/css');
+    build = require('./gulp/build');
 var webserver = require('gulp-webserver');
+
+var config = {
+  bowerDir: './bower_components'
+}
 
 // https://www.npmjs.com/package/gulp-webserver
 gulp.task('webserver', function() {
@@ -13,20 +18,18 @@ gulp.task('webserver', function() {
     }));
 });
 
-gulp.task('default', ['sass'], function() {
-  gulp.watch('scss/**/*');
+gulp.task('css', css);
+gulp.task('build', build);
+
+gulp.task('default', ['css', 'icons', 'build'], function() {
+  console.log("Hello Mr. Shoaf.");
+  gulp.watch('scss/**/*', ['css']);
+  gulp.watch('./templates/**/*.{hbs,json}', ['build']);
   gulp.run('webserver');
 });
 
-gulp.task('sass', function() {
 
-  return gulp.src('scss/main.scss')
-    .pipe(sass({
-        outputStyle: 'nested',
-        precison: 3,
-        errLogToConsole: true,
-        includePaths: ['./bower_components/bootstrap-sass/assets/stylesheets']
-    }))
-    .pipe(gulp.dest('css/'));
-
+gulp.task('icons', function() {
+  return gulp.src(config.bowerDir + '/font-awesome/fonts/**.*')
+    .pipe(gulp.dest('./fonts'));
 });

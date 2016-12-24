@@ -8678,7 +8678,8 @@ header {
   .resume .resume-experience section {
     padding: 7px;
     margin: 0;
-    border-bottom: 1px dashed #ccc; }
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 20px; }
     .resume .resume-experience section li {
       padding-top: 7px; }
     @media (min-width: 768px) {
@@ -8698,6 +8699,8 @@ header {
   .resume .resume-attributes section div:nth-child(2) {
     display: table; }
   .resume .resume-category section {
+    padding-top: 15px; }
+  .resume .resume-category section:last-child {
     padding-top: 15px;
     padding-bottom: 20px; }
   .resume h1 {

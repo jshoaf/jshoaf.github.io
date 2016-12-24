@@ -49,6 +49,9 @@
 		  "name": "TFS"
 		},
 		{
+		  "name": "Git"
+		},
+		{
 		  "name": "JSON"
 		},
 		{

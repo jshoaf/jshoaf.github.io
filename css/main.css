@@ -6,8 +6,6 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
-@import url("http://fonts.googleapis.com/css?family=Inconsolata:400");
-@import url("https://fonts.googleapis.com/css?family=Dekko");
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -8617,11 +8615,10 @@ header {
     margin-top: 5px;
     margin-bottom: 5px;
     color: #914262;
-    font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
     font-weight: bold;
     font-size: 28px; }
   header nav {
-    margin-top: 5px;
+    margin-top: 15px;
     font-size: 16px; }
     header nav a {
       color: #3D3D3D; }
@@ -8638,74 +8635,84 @@ header {
     background-image: url(../images/my-thumbnail.jpg);
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: contain; }
+    background-size: contain;
+    margin-right: 20px; }
 
-.resume h1, .resume h2, .resume h3, .resume h4 {
-  margin-top: 15px;
-  margin-bottom: 5px; }
-
-.resume h3, .resume h4 {
-  margin-top: 5px;
-  margin-bottom: 5px; }
-
-.resume h4 {
-  color: #8a8a8a; }
-
-.resume .resume-experience section div div:first-child h4:before,
-.resume .resume-education h4:before {
-  font-family: FontAwesome;
-  margin-right: 7px;
-  content: '\f073'; }
-
-.resume .resume-experience section div div:last-child h4:before {
-  font-family: FontAwesome;
-  margin-right: 7px;
-  content: '\f041'; }
-
-.resume .resume-experience section {
-  padding: 7px;
-  margin: 0; }
-
-.resume .resume-experience section:nth-child(odd) {
-  background-color: #eeeeee;
-  border-radius: 10px; }
-
-.resume .resume-skills span {
-  margin: 3px;
-  font-size: 100%;
-  font-weight: normal;
-  background-color: #b1557a;
-  display: inline-block; }
-
-.resume .resume-attributes section div:nth-child(1) {
-  float: left;
-  width: 30px; }
-
-.resume .resume-attributes section div:nth-child(2) {
-  display: table; }
-
-.resume .resume-category section {
-  padding-top: 5px;
-  padding-bottom: 5px; }
-
-.resume h1 {
-  font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
-  font-size: 28px;
-  color: #914262;
-  font-weight: bold;
-  width: 100%;
-  border-bottom: 2px solid #914262; }
-
-.resume h2 {
-  font-size: 24px; }
-
-.resume h3 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #914262; }
-
-.resume h4 {
-  font-size: 16px; }
-
-.resume ul {
-  padding-left: 20px; }
+.resume {
+  /*
+    .resume-experience section:after {
+            font-family: FontAwesome;
+            font-size: 32px;
+            //content: '\f074';
+            //content: '\f107';
+            content: '\f0d7';
+            content: '\f0ab';
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            margin-left: -50%;
+            color: #ddd;
+            //text-align: center; width: 100%; color: #ccc; padding: 10px 0;
+        }
+*/ }
+  .resume h1, .resume h2, .resume h3, .resume h4 {
+    margin-top: 15px;
+    margin-bottom: 5px; }
+  .resume h1 {
+    padding-bottom: 7px; }
+  .resume h3, .resume h4 {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+  .resume h4 {
+    color: #8a8a8a; }
+  .resume .resume-experience section div div:first-child h4:before,
+  .resume .resume-education h4:before {
+    font-family: FontAwesome;
+    margin-right: 7px;
+    content: '\f073'; }
+  .resume .resume-experience section div div:last-child h4:before {
+    font-family: FontAwesome;
+    margin-right: 7px;
+    content: '\f041'; }
+  .resume .resume-experience section {
+    padding: 7px;
+    margin: 0;
+    border-bottom: 1px dashed #ccc; }
+    .resume .resume-experience section li {
+      padding-top: 7px; }
+    @media (min-width: 768px) {
+      .resume .resume-experience section h4 {
+        padding: 15px 0; } }
+  .resume .resume-experience section:last-child {
+    border-bottom: none; }
+  .resume .resume-skills span {
+    margin: 3px;
+    font-size: 100%;
+    font-weight: normal;
+    background-color: #b1557a;
+    display: inline-block; }
+  .resume .resume-attributes section div:nth-child(1) {
+    float: left;
+    width: 30px; }
+  .resume .resume-attributes section div:nth-child(2) {
+    display: table; }
+  .resume .resume-category section {
+    padding-top: 15px;
+    padding-bottom: 20px; }
+  .resume h1 {
+    font-size: 28px;
+    color: #914262;
+    font-weight: bold;
+    width: 100%;
+    border-bottom: 2px solid #914262; }
+  .resume h2 {
+    font-size: 24px; }
+  .resume h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #914262; }
+  .resume h4 {
+    font-size: 100%; }
+  .resume ul {
+    padding-left: 20px; }

@@ -8,8 +8,8 @@ $site-label-bg-color: lighten($site-heading-color, 10%);
 $resume-heading-color: $site-heading-color;
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('http://fonts.googleapis.com/css?family=Inconsolata:400');
-@import url('https://fonts.googleapis.com/css?family=Dekko');
+//@import url('http://fonts.googleapis.com/css?family=Inconsolata:400');
+//@import url('https://fonts.googleapis.com/css?family=Dekko');
 
 body {
   color: $body-font-color;
@@ -37,12 +37,12 @@ header {
         margin-top: 5px;
         margin-bottom: 5px;
         color: $site-heading-color;
-        font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
+        //font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
         font-weight: bold;
         font-size: 28px;
     }
     nav {
-        margin-top: 5px;
+        margin-top: 15px;
         font-size: 16px;
 
         a {
@@ -64,7 +64,8 @@ header {
         background-image: url(../images/my-thumbnail.jpg);
         background-position:50% 50%;
         background-repeat:no-repeat;
-        background-size: contain;    
+        background-size: contain;
+        margin-right: 20px;
     }
 }
 
@@ -72,6 +73,9 @@ header {
     h1, h2, h3, h4 {
         margin-top: 15px;
         margin-bottom: 5px;
+    }
+    h1 {
+        padding-bottom: 7px;
     }
     h3, h4 {
         margin-top: 5px;
@@ -97,15 +101,44 @@ header {
     }
 
     .resume-experience section {
-        //border-bottom: 1px dashed #ccc;
         padding: 7px;
         margin: 0;
+        border-bottom: 1px dashed #ccc;
+
+        li {
+            padding-top: 7px;
+        }
+
+        h4 {
+            @media(min-width: $screen-sm-min) {
+                padding: 15px 0;
+            }
+        }
+    }
+/*
+    .resume-experience section:after {
+            font-family: FontAwesome;
+            font-size: 32px;
+            //content: '\f074';
+            //content: '\f107';
+            content: '\f0d7';
+            content: '\f0ab';
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            margin-left: -50%;
+            color: #ddd;
+            //text-align: center; width: 100%; color: #ccc; padding: 10px 0;
+        }
+*/
+    .resume-experience section:last-child {
+        border-bottom: none;
     }
 
     .resume-experience section:nth-child(odd) {
-        //border-bottom: 1px dashed #ccc;
-        background-color: #eeeeee;
-        border-radius: 10px;
+        //background-color: #eeeeee;
+        //border-radius: 10px;
     }
 
     .resume-skills span {
@@ -128,21 +161,20 @@ header {
 
     .resume-category section {
         //clear: both;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding-top: 15px;
+        padding-bottom: 20px;
     }
 
     h1 {
         //font-family: 'Dekko', cursive;
         //font-family: 'Open Sans', sans-serif;
-        font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
+        //font-family: Inconsolata, "Lucida Console", Monaco, Courier, monospace;
         font-size: 28px;
         color: $resume-heading-color;
         font-weight: bold;
         width: 100%;
         //text-transform: uppercase;
         border-bottom: 2px solid $resume-heading-color;
-
     }
     h2 {
         font-size: 24px;
@@ -153,7 +185,7 @@ header {
         color: $resume-heading-color;
     }
     h4 {
-        font-size: 16px;
+        font-size: 100%;
     }
     ul {
         padding-left:20px;
